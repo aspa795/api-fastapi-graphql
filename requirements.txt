@@ -1,0 +1,11 @@
+anyio==3.5.0
+fastapi==0.61.1
+idna==3.3
+typing_extensions==4.0.1
+coloredlogs==15.0.1
+graphene==2.1.8
+graphene-pydantic==0.1.0
+orator==0.9.9
+psycopg2-binary==2.8.6
+pytest==6.1.1
+uvicorn==0.12.2
