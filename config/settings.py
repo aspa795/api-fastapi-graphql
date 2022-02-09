@@ -3,12 +3,12 @@ from orator import DatabaseManager, Schema, Model
 DATABASES = {
     "postgres": {
         "driver": "postgres",
-        "host": "localhost",
-        "database": "postgres",
+        "host": "db",
+        "database": "crehana_test_db",
         "user": "postgres",
         "password": "postgres",
         "prefix": "",
-        "port": 5477
+        "port": 5432
     }
 }
 

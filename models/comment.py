@@ -1,4 +1,4 @@
-from config.db import Model
+from config.settings import Model
 
 
 class Comment(Model):

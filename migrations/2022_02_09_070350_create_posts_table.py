@@ -12,10 +12,11 @@ class CreatePostsTable(Migration):
             table.integer('userId')
             table.string('title')
             table.text('body')
+            table.soft_deletes()
             table.timestamps()
 
     def down(self):
         """
         Revert the migrations.
         """
-        self.schema.drop('posts')
+        pass

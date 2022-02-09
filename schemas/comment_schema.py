@@ -18,20 +18,26 @@ class CreateComment(graphene.Mutation):
     class Arguments:
         comment_details = CommentGrapheneInputModel()
 
-    Output = CommentGrapheneModel
+    code = graphene.Int()
+    message = graphene.String()
+    body = graphene.Field(CommentGrapheneModel)
 
     @staticmethod
     def mutate(parent, info, comment_details):
-        comment = Comment()
+        try:
+            comment = Comment()
 
-        comment.postId = comment_details.postId
-        comment.name = comment_details.name
-        comment.email = comment_details.email
-        comment.body = comment_details.body
+            comment.postId = comment_details.postId
+            comment.name = comment_details.name
+            comment.email = comment_details.email
+            comment.body = comment_details.body
 
-        comment.save()
+            comment.save()
 
-        return comment
+            return CreateComment(code=200, message='Comment Create Success', body=comment)
+        except Exception as e:
+            return CreateComment(code=400, message=str(e))
+
 
 class Mutation(graphene.ObjectType):
     create_comment = CreateComment.Field()
